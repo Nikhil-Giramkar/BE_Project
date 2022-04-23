@@ -1,38 +1,136 @@
-.App {
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito';
+}
+.obg{
+  border-bottom-left-radius: 2em;
+  border-top-right-radius: 2em;
+}
+.App-header{
+  background-color: rgb(24, 16, 16);
+ color: rgb(255, 255, 255);
+ /* color: rgb(243, 7, 85); */
+ border-left: 5px solid cyan;
+  opacity: 0.8;
+}
+.AppLite{
+  font-family:'Nunito';
+  height: 100vh;
+
+  background-image: url('images/bg1.jpg') ;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center ;
+  
+  filter: blur(0px);
+}
+h1{
+  text-shadow: 2px 2px 2px cyan;
+  border-top-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+h2:hover{
+  cursor: pointer;
+  color:chartreuse
+}
+.reg{
+  border: 0.1px solid cyan;
+  background-color: aqua;
+  color:rgb(243, 7, 85) ;
+}
+h2{
+ text-decoration: none;
+  border-top-left-radius: 1em;
+  border-bottom-right-radius: 1em;
   text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: 1em;
+  opacity: 1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main{
+  margin-top: 10%;
+  margin-left: 20%;
+  height: 50%;
+ 
+}
+.btext
+{
+  position: absolute;
+  top:63%;
+  left:50%; 
+  transform: translate(-50%,-50%);
+ color:black;
+ color:rgb(236, 201, 156);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logincard{
+margin-top: 8%;
+margin-left: 10%;
+margin-right: 10%;
+height: 65vh;
+opacity: 0.8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.imagegrid{
+  width: 48%;
+  height:65vh;
+}
+.formgrid{
+  width: 52%;
+
+  padding:10px;
+}
+.grid{
+
+  font-family:'Nunito';
+  height: 100vh;
+
+  background-image: url('images/bg2.jpg') ;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center ;
+  filter: blur(0px);
 }
 
-.App-link {
-  color: #61dafb;
-}
+.disease{
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-family:'Nunito';
+  height: 200vh;
+
+  background-image: url('images/d3.jfif') ;
+  background-size:cover;
+  
+  /* background-position: center ; */
+position: fixed;
+  background-position: center center;
+  background-attachment: fixed;
+  
+
+}
+.disease-x{
+  position: absolute;
+  top:130px;
+}
+.Medform{
+
+  font-family:'Nunito';
+  height: 200vh;
+
+  background-image: url('images/d4.jpg') ;
+  background-size:cover;
+  
+  /* background-position: center ; */
+position: fixed;
+  background-position: center center;
+  background-attachment: fixed;
+
+}
+#l1{
+  color:rgb(238, 101, 124)
 }
