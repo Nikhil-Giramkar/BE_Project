@@ -44,7 +44,7 @@ export const checkUserValidtion = async  (UserData  ) => {
 
     export const LoginUser = async (obj) => 
     {
-        let res=""
+        let res={}
         await axios.post ("http://127.0.0.1:8000/accounts/login/",obj,{
             headers: {
                 "Content-Type": "multipart/form-data" ,
@@ -52,7 +52,7 @@ export const checkUserValidtion = async  (UserData  ) => {
           })
         .then ( response => {
             console.log ( response.data.token )
-            res=response.data.token         
+            res=response.data         
         }).catch ( err => {
                 console.log ( err )
                 alert("Login Failed .  Try Again")
@@ -78,6 +78,28 @@ export const checkUserValidtion = async  (UserData  ) => {
             } )
     
             return res;
+    }
+
+    export const getHistory = async (token) => 
+    {
+        console.log(token)
+        let result = 0;
+        const tokenString = localStorage.getItem('token');
+        await axios.get ("http://127.0.0.1:8000/api/userHistory/",{
+        headers: {
+            "Authorization":`Token ${token}`
+        }
+      })
+        .then ( response => {
+           
+            result=response.data 
+            console.log (result )
+        }).catch ( err => {
+                alert("token not valid... Login Again")
+                console.log ( err )
+            } )
+    
+            return result;
     }
 
     

@@ -9,6 +9,8 @@ import NavMod from '../NavMod/NavMod';
 
 const Lung = () => {
 
+
+
 const arr = 
 [
     {label:"Gender" , key:"Gender"},
@@ -33,7 +35,23 @@ const arr =
 //     {label:"Smoking" , key:"smoking"},
 //     {label:"Yellow", key:"yellow"}
 // ]
+const cities = [
+ 'Pune',
+ 'Thane',
+ 'Kolhapur',
+ 'Jalgaon',
+ 'Banglore',
+ 'Mumbai',
+ 'Delhi',
+ 'Hyderabad',
+ 'Noida',
+ 'Gurgaon',
+ 'Chennai',
+ 'Nashik',
+ 'Gurgaon',
+ 'Lucknow'
 
+]
 const [fieldData, setFieldData] = useState({})
 const history = useHistory();
 const [age, setAge] = useState(0)
@@ -46,7 +64,7 @@ const [bName, setBName] = React.useState(localStorage.getItem("birthName"));
 //console.log(tok)
 const handleResult =async (e) => 
 {
-   let tok = localStorage.getItem("token")
+    let tok = localStorage.getItem("token")
     let Data = new FormData();
     for (const t in fieldData ) 
     {
@@ -79,6 +97,28 @@ useEffect(() => {
             <Grid container direction="column" style={{ margin:"2.3em auto",  height:"40%",width:"53%"}}>
             <TextField id="outlined-basic" type={"number"} label="Age" style={{marginTop:"1em",width:"15em"}} defaultValue={fieldData['Age']? fieldData['Age'] : ""}
              onChange={e=> setFieldData({...fieldData,['Age']:parseInt(e.target.value)})} variant="outlined" />
+            
+            <TextField
+                    id="outlined-select-currency"
+                    select
+                    style={{marginTop:"1em",width:"15em"}}
+                    label='City'       
+                          
+                    defaultValue={fieldData['City']? fieldData['City'] : ""}
+                    onChange={e=> setFieldData({...fieldData,['City']:e.target.value})}
+                    >
+                        
+                        {
+                            cities.map(item=>
+                                <MenuItem value={item} >
+                                 {item}
+                                </MenuItem>
+                            )
+                        }
+                        
+
+                    </TextField>
+            
             {
                 arr.map((data)=>
                 data.label=="button" ? 

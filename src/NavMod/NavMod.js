@@ -18,13 +18,20 @@ const NavMod = ({title,n}) =>
       const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
       };
+      const Close = () => {
+    
+        setAnchorEl(null);
+        
+      };
     
       const handleClose = () => {
+    
         setAnchorEl(null);
-        //history.push("/disease/choice")
+        history.push("/disease/choice")
       };
       const handleHistory = () => {
         setAnchorEl(null);
+        history.push("/disease/allHistory")
       };
       const handleLogOut = () => {
         setAnchorEl(null);
@@ -70,11 +77,11 @@ const NavMod = ({title,n}) =>
                   horizontal: 'right',
                 }}
                 open={Boolean(anchorEl)}
-                onClose={handleClose}
+                onClose={Close}
               >
-                <MenuItem onClick={()=>handleClose}>Home</MenuItem>
-                <MenuItem onClick={()=>handleHistory}>My History</MenuItem>
-                <MenuItem onClick={()=>handleLogOut}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Home</MenuItem>
+                <MenuItem onClick={handleHistory}>My History</MenuItem>
+                <MenuItem onClick={handleLogOut}>Logout</MenuItem>
               </Menu>     
               </Grid>    
                </Grid>

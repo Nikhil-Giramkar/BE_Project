@@ -59,12 +59,12 @@ const Login = () => {
             }
             const data = await LoginUser(UserData)
             console.log(data)
-            if(data === ""){
+            if(Object.keys(data).length === 0){
                 history.push("/home")
             }
-            if(data!=""){
-                localStorage.setItem('token', data);
-                localStorage.setItem('birthName', "Abhishek");
+            if(Object.keys(data).length > 0){
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('birthName', data.name);
                 
                 history.push("/disease/choice")
             }

@@ -2,6 +2,7 @@ import Diabetes from "../Disease/Diabetes";
 import Disease from "../Disease/Disease";
 import Heart from "../Disease/Heart";
 import Lung from "../Disease/Lung";
+import Tab from "../Disease/Table";
 
 export const routes = [
     {
@@ -33,5 +34,11 @@ export const routes = [
         component: Disease,
         layout: "/disease",
         key:5,
+      },
+      {
+        path: "/allHistory",
+        component: Tab,
+        layout: "/disease",
+        key:6,
       }
 ];

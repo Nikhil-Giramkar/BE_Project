@@ -60,6 +60,23 @@ useEffect(() => {
   }, [fieldData])
   const [tok, setTok] = React.useState(localStorage.getItem("token"));
   const [bName, setBName] = React.useState(localStorage.getItem("birthName"));
+  const cities = [
+    'Pune',
+    'Thane',
+    'Kolhapur',
+    'Jalgaon',
+    'Banglore',
+    'Mumbai',
+    'Delhi',
+    'Hyderabad',
+    'Noida',
+    'Gurgaon',
+    'Chennai',
+    'Nashik',
+    'Gurgaon',
+    'Lucknow'
+   
+   ]
   const handleResult = async (e) => 
   {
     
@@ -84,13 +101,36 @@ useEffect(() => {
           {openDialog && <Result result={result} title={"Diabetes"}/>}
               
               <NavMod title={"Diabetes Prediction"} n={bName}/>
-            <Grid container direction="column" >  
-            <Typography variant="h6" id="l1" style={{margin:"-0.7em auto",fontSize:"1.2em",fontFamily:"Nunito"}}>
+            <Grid container direction="column" style={{paddingTop:"2em"}}>  
+            <Typography variant="h6" id="l1" style={{margin:"-0.1em auto",fontSize:"1.2em",fontFamily:"Nunito"}}>
             Please select all fields properly and then click on submit
             </Typography>
-            <Grid container direction="column" style={{ margin:"2.3em auto",  height:"40%",width:"53%"}}>
+            <Grid container direction="column" style={{ margin:"3em auto",  height:"40%",width:"53%"}}>
             <TextField id="outlined-basic" type={"number"} label="Age" style={{marginTop:"1em",width:"15em"}} defaultValue={fieldData['Age']? fieldData['Age'] : ""}
              onChange={e=> setFieldData({...fieldData,['Age']:parseInt(e.target.value)})} variant="outlined" />
+            
+            <TextField
+                    id="outlined-select-currency"
+                    select
+                    style={{marginTop:"1em",width:"15em"}}
+                    label='City'       
+                          
+                    defaultValue={fieldData['City']? fieldData['City'] : ""}
+                    onChange={e=> setFieldData({...fieldData,['City']:e.target.value})}
+                    >
+                        
+                        {
+                            cities.map(item=>
+                                <MenuItem value={item} >
+                                 {item}
+                                </MenuItem>
+                            )
+                        }
+                        
+
+                    </TextField>
+            
+            
             {
                 arr.map((data)=>
                 data.label=="button" ? 

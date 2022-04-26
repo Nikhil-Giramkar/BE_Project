@@ -15,6 +15,16 @@
  border-left: 5px solid cyan;
   opacity: 0.8;
 }
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+td,th{
+  font-family: 'Nunito';
+  height: 2.5em;
+
+}
 .AppLite{
   font-family:'Nunito';
   height: 100vh;

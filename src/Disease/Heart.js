@@ -22,6 +22,24 @@ const Heart = () => {
         setAnchorEl(null);
       };
 
+      const cities = [
+        'Pune',
+        'Thane',
+        'Kolhapur',
+        'Jalgaon',
+        'Banglore',
+        'Mumbai',
+        'Delhi',
+        'Hyderabad',
+        'Noida',
+        'Gurgaon',
+        'Chennai',
+        'Nashik',
+        'Gurgaon',
+        'Lucknow'
+       
+       ]
+
       const arr2=[
         {label:"ChestPainType", key:"ChestPainType"},
         {label:"RestingBP", key:"RestingBP"}, 
@@ -85,8 +103,26 @@ const Heart = () => {
                 Please select all fields properly and then click on submit
                 </Typography>
                 <Grid container direction="column" style={{margin:"10em auto",  height:"40%",width:"53%"}}>
-                <TextField id="outlined-basic" type={"text"}  label="City" style={{marginTop:"1em",width:"15em"}} defaultValue={fieldData['City']? fieldData['City'] : ""}
-                onChange={e=> setFieldData({...fieldData,['City']:e.target.value})} variant="outlined" />
+                <TextField
+                    id="outlined-select-currency"
+                    select
+                    style={{marginTop:"1em",width:"15em"}}
+                    label='City'       
+                          
+                    defaultValue={fieldData['City']? fieldData['City'] : ""}
+                    onChange={e=> setFieldData({...fieldData,['City']:e.target.value})}
+                    >
+                        
+                        {
+                            cities.map(item=>
+                                <MenuItem value={item} >
+                                 {item}
+                                </MenuItem>
+                            )
+                        }
+                        
+
+                    </TextField>
        
                 <TextField id="outlined-basic" type={"number"} label="Age" style={{marginTop:"1em",width:"15em"}} defaultValue={fieldData['Age']? fieldData['Age'] : ""}
                 onChange={e=> setFieldData({...fieldData,['Age']:parseInt(e.target.value)})} variant="outlined" />
