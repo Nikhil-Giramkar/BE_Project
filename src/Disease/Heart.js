@@ -93,7 +93,7 @@ const Heart = () => {
     return ( 
 
         <Grid container className="Medform">
-        {openDialog && <Result result={result} title={"Heart Attack"}/>}
+        {openDialog && <Result result={result} acc={"91.66"} title={"Heart Attack"}/>}
               
             <NavMod title={"Heart Cancer Prediction"} n={bName}/>
 
@@ -217,10 +217,10 @@ const Heart = () => {
                         onChange={e=> setFieldData({...fieldData,[data.key]:e.target.value})}
                         >
                         <MenuItem value={1}>
-                        {data.label==="Sex" ? ("Male"):("Yes")}
+                        {data.label==="Gender" ? ("Male"):("Yes")}
                         </MenuItem>
                         <MenuItem value={0}>
-                        {data.label==="Sex" ? ("Female"):("No")}
+                        {data.label==="Gender" ? ("Female"):("No")}
                         </MenuItem> 
                         </TextField>
                     )

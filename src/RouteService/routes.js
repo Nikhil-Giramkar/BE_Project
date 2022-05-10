@@ -3,8 +3,14 @@ import Disease from "../Disease/Disease";
 import Heart from "../Disease/Heart";
 import Lung from "../Disease/Lung";
 import Tab from "../Disease/Table";
+import Brain from "../Disease/Brain";
+import Pharma from "../Disease/Pharma";
+import LungTable from "../Disease/LungTable";
+import BrainTable from "../Disease/BrainTable";
+import DiabetesTable from "../Disease/DiabetesTable";
+import HeartTable from "../Disease/HeartTable";
 
-export const routes = [
+export const routes = [ 
     {
       path: "/lung",
       component: Lung,
@@ -31,7 +37,7 @@ export const routes = [
       },
       {
         path: "/brain",
-        component: Disease,
+        component: Brain,
         layout: "/disease",
         key:5,
       },
@@ -40,5 +46,35 @@ export const routes = [
         component: Tab,
         layout: "/disease",
         key:6,
-      }
+      },
+      {
+        path: "/pharma",
+        component: Pharma,
+        layout: "/disease",
+        key:7,
+      },
+      {
+        path: "/LungAnalytics",
+        component:LungTable,
+        layout: "/disease",
+        key:8,
+      },
+      {
+        path: "/HeartAnalytics",
+        component:HeartTable,
+        layout: "/disease",
+        key:9,
+      },
+      {
+        path: "/DiabetesAnalytics",
+        component:DiabetesTable,
+        layout: "/disease",
+        key:10,
+      },
+      {
+        path: "/BrainAnalytics",
+        component:BrainTable,
+        layout: "/disease",
+        key:11,
+      },
 ];

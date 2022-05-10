@@ -12,10 +12,11 @@ export const checkUserValidtion = async  (UserData  ) => {
                 console.log ( response.data ) 
                 let string1 = "an OTP has been sent on your email";
          result = string1.localeCompare(response.data.message);
-            }).catch ( err => {
-                    console.log ( err )
+            }).catch ( err =>
+                {
+                    console.log (err)
                     alert("already registered user ..Refresh the page and try again")
-                } )
+                })
         return result;
     }
 
@@ -170,20 +171,193 @@ export const checkUserValidtion = async  (UserData  ) => {
                 return result;
     }
 
-    export const BrainTumour =   (obj,token) => 
+    export const BrainTumour =  async(obj,token) => 
     {
-        let result =-100
-        axios.post ("http://127.0.0.1:8000/api/predictBrainTumor/",obj ,{
+        let result =0
+        await axios.post ("http://127.0.0.1:8000/api/predictBrainTumor/",obj ,{
         headers: {
             "Authorization":`Token ${token}`,
+            "Content-Type": "multipart/form-data" ,
         }
       })
         .then ( response => {
+            result=response.data 
             console.log ( response.data ) }).catch ( err => {
                 console.log ( err )
             } )
     
             return result;
+    }
+    
+
+    //LungTable
+
+    // export const getLungTable = async (token) => 
+    // {
+    //     console.log(token)
+    //     let result = {}
+    //     const tokenString = localStorage.getItem('token');
+    //     await axios.get ("http://127.0.0.1:8000/api/lungcancer/sexVsResult/",{
+    //     headers: {
+    //         "Authorization":`Token ${token}`
+    //     }
+    //   })
+    //     .then ( response => {
+    //         result["GenderVsResult "]=response.data 
+    //         console.log (result )
+    //     }).catch ( err => {
+    //             alert("token not valid... Login Again")
+    //             console.log ( err )
+    //         } )
+    
+    //         return result;
+    // }
+
+
+    export const getLungTable = async (token) => 
+    {
+        console.log(token)
+        let result = []
+        const tokenString = localStorage.getItem('token');
+
+
+        const requestOne =await axios.get("http://127.0.0.1:8000/api/lungcancer/sexVsResult/",{
+            headers: {
+                "Authorization":`Token ${token}`
+            }
+          });
+        const requestTwo = await axios.get("http://127.0.0.1:8000/api/lungcancer/smokingVsResult/",{
+            headers: {
+                "Authorization":`Token ${token}`
+            }
+          });
+
+          axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
+           const responseOne = responses[0].data
+           const responseTwo = responses[1].data
+            result.push(responseOne)
+            result.push(responseTwo)
+            
+            // for (const item in responseOne) {
+            //     console.log(item + " " + responseOne[item])
+            //   }
+          })).catch(err => {
+            alert("token not valid... Login Again")
+            console.log ( err )
+          })
+      console.log(result)
+         return result ;
+    }
+
+
+
+
+    export const getHeartTable = async (token) => 
+    {
+        console.log(token)
+        let result = []
+        const tokenString = localStorage.getItem('token');
+
+
+        const requestOne =await axios.get("http://127.0.0.1:8000/api/heartattack/sexVsResult/",{
+            headers: {
+                "Authorization":`Token ${token}`
+            }
+          });
+        const requestTwo = await axios.get("http://127.0.0.1:8000/api/heartattack/chestPainVsResult/",{
+            headers: {
+                "Authorization":`Token ${token}`
+            }
+          });
+
+          axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
+           const responseOne = responses[0].data
+           const responseTwo = responses[1].data
+            result.push(responseOne)
+            result.push(responseTwo)
+            
+            // for (const item in responseOne) {
+            //     console.log(item + " " + responseOne[item])
+            //   }
+          })).catch(err => {
+            alert("token not valid... Login Again")
+            console.log ( err )
+          })
+      console.log(result)
+         return result ;
+    }
+
+
+    export const getDiabetesTable = async (token) => 
+    {
+        console.log(token)
+        let result = []
+        const tokenString = localStorage.getItem('token');
+
+
+        const requestOne =await axios.get("http://127.0.0.1:8000/api/diabetes/sexVsResult/",{
+            headers: {
+                "Authorization":`Token ${token}`
+            }
+          });
+        const requestTwo = await axios.get("http://127.0.0.1:8000/api/diabetes/obesityVsResult/",{
+            headers: {
+                "Authorization":`Token ${token}`
+            }
+          });
+
+          axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
+           const responseOne = responses[0].data
+           const responseTwo = responses[1].data
+            result.push(responseOne)
+            result.push(responseTwo)
+            
+            // for (const item in responseOne) {
+            //     console.log(item + " " + responseOne[item])
+            //   }
+          })).catch(err => {
+            alert("token not valid... Login Again")
+            console.log ( err )
+          })
+      console.log(result)
+         return result ;
+    }
+    
+
+
+    export const getBrainTable = async (token) => 
+    {
+        console.log(token)
+        let result = []
+        const tokenString = localStorage.getItem('token');
+
+
+        const requestOne =await axios.get("http://127.0.0.1:8000/api/braintumor/sexVsResult/",{
+            headers: {
+                "Authorization":`Token ${token}`
+            }
+          });
+        const requestTwo = await axios.get("http://127.0.0.1:8000/api/braintumor/TypeResult/",{
+            headers: {
+                "Authorization":`Token ${token}`
+            }
+          });
+
+          axios.all([requestOne, requestTwo]).then(axios.spread((...responses) => {
+           const responseOne = responses[0].data
+           const responseTwo = responses[1].data
+            result.push(responseOne)
+            result.push(responseTwo)
+            
+            // for (const item in responseOne) {
+            //     console.log(item + " " + responseOne[item])
+            //   }
+          })).catch(err => {
+            alert("token not valid... Login Again")
+            console.log ( err )
+          })
+      console.log(result)
+         return result ;
     }
     
     

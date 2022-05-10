@@ -65,8 +65,11 @@ const Login = () => {
             if(Object.keys(data).length > 0){
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('birthName', data.name);
-                
-                history.push("/disease/choice")
+                if(loginAs==1)
+                   history.push("/disease/choice")
+                else{
+                    history.push("/disease/pharma")
+                }   
             }
         }
             

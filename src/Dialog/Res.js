@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import React from 'react';
 import { buildStyles, CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import { useHistory } from "react-router-dom";
-const Result = ({result,title,acc}) => {
+const Res = ({result,title}) => {
     const [open, setOpen] = React.useState(true)
     const history = useHistory();
     const handleTest = () =>
@@ -37,7 +37,7 @@ const Result = ({result,title,acc}) => {
                 </Typography> */}
                 <Grid container direction="row" style={{width:600,marginTop:"2em", marginLeft:"1em"}}>
                 {
-                    result===0?(
+                    result===""?(
                         <Grid container>
                             <Typography variant="h5" style={{fontFamily:"Nunito" , color:"green"}}>
                             Congratulations, the test result is negative for {title} Prediction
@@ -60,7 +60,7 @@ const Result = ({result,title,acc}) => {
                         >
                             <Typography variant="h6" style={{fontFamily:"Nunito"}}>
                             <b>Accuracy</b> <br />
-                            <b>{acc}</b>
+                            <b>95</b>
                             <span style={{ fontSize: "18px" }}>
                                 <b>%</b>
                             </span>
@@ -70,8 +70,9 @@ const Result = ({result,title,acc}) => {
                     </div>
                      </Grid>
                      <Grid item style={{width:"75%",marginTop:"1.5em"}}>
-                         <Typography variant="h4" style={{fontWeight:"bolder",fontSize:"1.5em",fontFamily:"Nunito",color:"red"}}>
+                         <Typography variant="h4" style={{fontWeight:"bolder",fontSize:"1em",fontFamily:"Nunito",color:"red"}}>
                          Unfortunately, you have been tested positive for {title} according to our prediction.
+                         You have {result}
             </Typography>
                      </Grid>
                      </>
@@ -101,4 +102,4 @@ const Result = ({result,title,acc}) => {
     );
 }
  
-export default Result;
+export default Res;

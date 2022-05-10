@@ -86,7 +86,7 @@ useEffect(() => {
   }, [fieldData])
     return ( 
         <Grid container className="Medform">
-        {openDialog && <Result result={result} title={"Lung Cancer"}/>}   
+        {openDialog && <Result result={result} acc={"97"} title={"Lung Cancer"}/>}   
 
            <NavMod title={"Lung Cancer Prediction"} n={bName} />
               
